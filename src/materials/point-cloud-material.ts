@@ -7,6 +7,7 @@ import {
   RawShaderMaterial,
   Texture,
   VertexColors,
+  WebGLRenderer,
 } from 'three';
 import {
   DEFAULT_MAX_POINT_SIZE,
@@ -279,6 +280,14 @@ export class PointCloudMaterial extends RawShaderMaterial {
 
     this.needsUpdate = true;
   }
+
+  onBeforeCompile(shader: { fragmentShader: string, vertexShader: string }, renderer: WebGLRenderer) {
+    if (renderer.capabilities.logarithmicDepthBuffer) {
+        const define = '#define USE_LOGDEPTHBUF\n#define USE_LOGDEPTHBUF_EXT\n#define EPSILON 1e-6\n';
+        shader.fragmentShader = define + shader.fragmentShader;
+        shader.vertexShader = define + shader.vertexShader;
+      }
+    }
 
   applyDefines(shaderSrc: string): string {
     const parts: string[] = [];
