@@ -22,8 +22,7 @@
     "start:example": "webpack-dev-server --config webpack.config.example.js --mode development --progress",
     "build": "npm run clean && npm run lint && webpack --mode production --progress --config webpack.config.prod.js",
     "lint": "tslint --project tsconfig.json",
-    "prettier": "prettier --write \"**/*.js\" \"**/*.jsx\" \"**/*.tsx\" \"**/*.ts\"",
-    "install": "npm install && npm run build"
+    "prettier": "prettier --write \"**/*.js\" \"**/*.jsx\" \"**/*.tsx\" \"**/*.ts\""
   },
   "dependencies": {
     "process-nextick-args": "^2.0.0",
@@ -51,11 +50,11 @@
     "rimraf": "^2.6.3",
     "size-plugin": "^1.1.1",
     "style-loader": "^0.23.1",
-    "three": "^0.100.0",
+    "three": "^0.102.1",
     "three-orbit-controls": "^82.1.0",
     "ts-loader": "^5.3.3",
     "tslint": "^5.12.0",
-    "typescript": "^3.2.2",
+    "typescript": "2.9.2",
     "webpack": "^4.28.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.2.1",
